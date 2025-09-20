@@ -1,12 +1,15 @@
-// El principal objetivo de este desafío es fortalecer tus habilidades en lógica de programación. Aquí deberás desarrollar la lógica para resolver el problema.
+﻿// El principal objetivo de este desafío es fortalecer tus habilidades en lógica de programación. Aquí deberás desarrollar la lógica para resolver el problema.
+
+let input = document.getElementById("amigo");
+let lista = document.getElementById("listaAmigos")
+lista.innerHTML = "";
 
 let amigos = [];
 const numeros = "1234567890";
 
 function agregarAmigo() {
-  let amigo = document.getElementById("amigo").value;
+  let amigo = input.value;
   let bandera = true;
-  let bandera2 = true;
 
   if (amigo === "") {
     ///Validad que el usuario no ingrese nada vacio
@@ -28,7 +31,7 @@ function agregarAmigo() {
           break;
         }
       }
-      if (!bandera2) {
+      if (!bandera) {
         alert("No se permiten numeros en los nombres.");
         break;
       }
@@ -37,6 +40,15 @@ function agregarAmigo() {
   if (bandera) {
     ///Si el nombre es solo texto ingresa el nombre a la ultima posicion de la list.
     amigos.push(document.getElementById("amigo").value);
+    mostrarAmigos();
   }
   ///console.log(amigos);
+  input.value = "";
 }
+
+function mostrarAmigos() {
+    let li = document.createElement('li');
+    li.textContent = input.value;
+    lista.appendChild(li);
+}
+
